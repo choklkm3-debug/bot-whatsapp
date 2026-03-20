@@ -23,7 +23,7 @@ function salvar() {
 async function startBot() {
   const { state, saveCreds } = await useMultiFileAuthState('auth')
 
-  const sock = makeWASocket({
+const sock = makeWASocket({
   auth: state
 })
 
@@ -33,7 +33,7 @@ if (!state.creds.registered) {
   console.log("📱 Código de pareamento:", code)
 }
 
-  sock.ev.on('creds.update', saveCreds)
+sock.ev.on('creds.update', saveCreds)
 
   sock.ev.on('connection.update', (update) => {
     const { connection, qr } = update
