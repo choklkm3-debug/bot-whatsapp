@@ -27,10 +27,9 @@ const sock = makeWASocket({
   auth: state
 })
 
-if (!state.creds.registered) {
-  console.log("⚡ GERANDO CÓDIGO...")
-  const code = await sock.requestPairingCode("5579981570034")
-  console.log("📱 Código de pareamento:", code)
+console.log("⚡ GERANDO CÓDIGO...")
+const code = await sock.requestPairingCode("5579981570034")
+console.log("📱 Código:", code)
 }
 
 sock.ev.on('creds.update', saveCreds)
